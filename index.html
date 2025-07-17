@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <video autoplay loop muted id="backgroundVideo">
+        <source id="videoSource" src="assets/Background.mp4" type="video/mp4">
+    </video>
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="assets/background.mp3" type="audio/mpeg">
+    </audio>
+    <div class="introcontainer">
+        <h1 class="header">Welcome to My Weather App</h1>
+        <div class="search">
+            <input type="text" placeholder="Enter your location" class="input">
+            <select id="degree">
+                <option>°C</option>
+                <option>°F</option>
+            </select>
+            <button class="searchBtn"><i class="bi bi-search"></i></button>
+        </div>
+    </div>
+    <div class="weathercontainer">
+        <div class="today">
+            <h1>Today's Weather</h1>
+            <div class="location">
+                <div class="name">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <h2 class="place"></h2>
+                </div>
+                <h3 class="date"></h3>
+            </div>
+            <div class="icon_temp">
+                <img src="" alt="weather icon" class="image">
+                <div class="temp">
+                    <p class="temperature"></p>
+                    <p class="feels"></p>
+                    <p class="description"></p>
+                </div>
+            </div>
+            <div class="otherdata">
+                <div class="humidity">
+                    <i class="bi bi-moisture"></i>
+                    <p class="data" id="humid"></p>
+                    <h3>Humidity</h3>
+                </div>
+                <div class="wind">
+                    <i class="bi bi-wind"></i>
+                    <p class="data" id="speed"></p>
+                    <h3>Wind Speed</h3>
+                </div>
+            </div>
+            <button class="showcast">Next 6 Days' Forecast</button>
+        </div>
+        <div class="todaynew"></div>
+        <div class="errormsg">
+            <p class="errordesc"></p>
+            <img src="" alt="error message" class="errorimg">
+        </div>
+        <div class="errormsgnew">
+            <p class="errordescnew"></p>
+            <img src="" alt="error message" class="errorimgnew">
+        </div>
+        <div class="nextdays">
+            <div class="days" id="day1">
+                <h3 class="datenext" id="date1"></h3>
+                <div class="icon_tempnext">
+                    <img src="assets/weather/clouds.svg" alt="weather icon" class="imagenext" id="image1">
+                    <div class="tempnext">
+                        <p class="min_temp" id="min_temp1"></p>
+                        <p class="max_temp" id="max_temp1"></p>
+                    </div>
+                    <p class="descriptionnext" id="desc1"></p>
+                </div>
+            </div>
+            <div class="days" id="day2">
+                <h3 class="datenext" id="date2"></h3>
+                <div class="icon_tempnext">
+                    <img src="assets/weather/clouds.svg" alt="weather icon" class="imagenext" id="image2">
+                    <div class="tempnext">
+                        <p class="min_temp" id="min_temp2"></p>
+                        <p class="max_temp" id="max_temp2"></p>
+                    </div>
+                    <p class="descriptionnext" id="desc2"></p>
+                </div>
+            </div>
+            <div class="days" id="day3">
+                <h3 class="datenext" id="date3"></h3>
+                <div class="icon_tempnext">
+                    <img src="assets/weather/clouds.svg" alt="weather icon" class="imagenext" id="image3">
+                    <div class="tempnext">
+                        <p class="min_temp" id="min_temp3"></p>
+                        <p class="max_temp" id="max_temp3"></p>
+                    </div>
+                    <p class="descriptionnext" id="desc3"></p>
+                </div>
+            </div>
+            <div class="days" id="day4">
+                <h3 class="datenext" id="date4"></h3>
+                <div class="icon_tempnext">
+                    <img src="assets/weather/clouds.svg" alt="weather icon" class="imagenext" id="image4">
+                    <div class="tempnext">
+                        <p class="min_temp" id="min_temp4"></p>
+                        <p class="max_temp" id="max_temp4"></p>
+                    </div>
+                    <p class="descriptionnext" id="desc4"></p>
+                </div>
+            </div>
+            <div class="days" id="day5">
+                <h3 class="datenext" id="date5"></h3>
+                <div class="icon_tempnext">
+                    <img src="assets/weather/clouds.svg" alt="weather icon" class="imagenext" id="image5">
+                    <div class="tempnext">
+                        <p class="min_temp" id="min_temp5"></p>
+                        <p class="max_temp" id="max_temp5"></p>
+                    </div>
+                    <p class="descriptionnext" id="desc5"></p>
+                </div>
+            </div>
+            <div class="days" id="day6">
+                <h3 class="datenext" id="date6"></h3>
+                <div class="icon_tempnext">
+                    <img src="assets/weather/clouds.svg" alt="weather icon" class="imagenext" id="image6">
+                    <div class="tempnext">
+                        <p class="min_temp" id="min_temp6"></p>
+                        <p class="max_temp" id="max_temp6"></p>
+                    </div>
+                    <p class="descriptionnext" id="desc6"></p>
+                </div>
+            </div>
+        </div>
+        <div class="nextdaysnew"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

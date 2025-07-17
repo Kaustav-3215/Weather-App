@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Tagesschrift&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+}
+
+#backgroundVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  z-index: -1; 
+}
+
+.introcontainer{
+    width: 100%;
+    height:10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.header{
+    color: #000000;
+    font-size: 3rem;
+    font-family: "Tagesschrift", system-ui;
+    text-align: center;
+    transform: scale(1);
+    transition: transform 0.6s ease-in-out;
+}
+
+.search{
+    width: 45vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(30px);
+    padding: 10px 20px;
+    border: 2px solid white;
+    transform: translateY(0);
+    transition: transform 1s ease;
+}
+
+.input{
+    width: 80%;
+    font-size: 2rem;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.input::placeholder{
+    color: #000000;
+}
+
+#degree{
+    font-size: 1.5rem;
+    background-color: transparent;
+    outline: none;
+    border:none;
+    cursor: pointer;
+}
+
+.searchBtn{
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    outline: none;
+    background-color:transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-right: -10px;
+}
+
+.searchBtn:hover{
+    color: #fff;
+    background-color: #ababab;
+}
+
+.searchBtn:active{
+    transform: scale(0.9);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.weathercontainer{
+    overflow: hidden;
+    margin-top: 10px;
+    width: 100%;
+    min-height: 88vh;
+    display: grid;
+    place-items:center;
+}
+.errormsg, .errormsgnew{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-area: 1/1/2/2;
+    transform: translateY(0);
+    pointer-events: none;
+    width: 100vw;
+}
+.errormsgnew.dissapear{
+    transition: transform 1s ease;
+    transition-delay: 0.8s;
+    transform: translateY(50rem);
+}
+.errorimg, .errorimgnew{
+    height: 40vw;
+    width: 45vw;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    border: 2px solid white;;
+    border-radius: 10px;
+    transform: translateY(-50rem);
+    transition: transform 1s ease;
+    transition-delay: 1s;
+}
+.errordesc, .errordescnew{
+    color: white;
+    font-size: 3rem;
+    font-family: "Tagesschrift", system-ui;
+    text-align: center;
+    transform: scale(0);
+    transition: transform 0.6s ease-in-out;
+    transition-delay: 1.5s;
+}
+
+.today, .todaynew{
+    min-height: 80vh;
+    width: 30vw;
+    margin: 20px;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    font-family: "Ubuntu", sans-serif;
+    border: 2px solid white;
+    color: white;
+    transform: translateX(0) translateY(-50rem);
+    grid-area: 1/1/2/2;
+}
+.today.show{
+    transition: transform 1s ease;
+    transition-delay: 0.8s;
+    transform: translateX(0) translateY(0);
+}
+.todaynew.show{
+    transform: translateX(0) translateY(0);
+}
+.todaynew.disappear{
+    transition: transform 1s ease;
+    transition-delay: 0.8s;
+    transform: translateX(0) translateY(50rem);
+}
+.todaynew.moveshow{
+    transform: translateX(-32rem) translateY(0);
+}
+.today.moveshow{
+    transition: transform 1s ease;
+    transition-delay: 0.8s;
+    transform: translateX(-32rem) translateY(0);
+}
+.todaynew.movedisappear{
+    transition: transform 1s ease;
+    transition-delay: 0.8s;
+    transform: translateX(-32rem) translateY(50rem);
+}
+.todaynew.move{
+    transition: transform 1s ease;
+    transition-delay: 0.8s;
+    transform: translateX(-32rem) translateY(0);
+}
+.todaynew.moveagain{
+    transition: transform 1s ease;
+    transition-delay: 0.8s;
+    transform: translateX(0) translateY(0);
+}
+.today.move{
+    transition: transform 1s ease;
+    transition-delay: 0.8s;
+    transform: translateX(-32rem) translateY(-50rem);
+}
+.today.moveagain{
+    transition: transform 1s ease;
+    transition-delay: 0.8s;
+    transform: translateX(0) translateY(-50rem);
+}
+.today.reset{
+    transform: translateX(-32rem) translateY(-50rem);
+}
+.showcast{
+    cursor: pointer;
+    height: auto;
+    width: 100%;
+    font-size: 1.5rem;
+    background-color: rgb(215, 169, 196);
+    border: 2px solid;
+    border-color: inherit;
+    border-radius: 20px;
+    font-weight: 500;
+    font-family: "Ubuntu", sans-serif;
+    color: inherit;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    transition-delay: 4.5s;
+}
+.showcast:hover{
+    background-color: #ae56e4;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgb(255, 255, 255);
+}
+.showcast:active{
+    transform: translateY(2px) scale(0.9);
+}
+
+.today h1, .todaynew h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.location{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px;
+    border: 2px solid white;
+    margin: 10px 0px;
+    opacity: 0 ;
+    transition: opacity 0.6s ease-in-out;
+    transition-delay: 2s;
+}
+
+.name{
+    display: flex;
+    align-items: center;
+}
+
+.location i{
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+.place{
+    font-size: 1.4rem;
+    width: auto;
+}
+.date{
+    font-size: 1.1rem;
+    margin-right: 10px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.icon_temp{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.image{
+    height: 200px;
+    width: 200px;
+    transform: translateY(-15rem);
+    transition: transform 1s ease;
+    transition-delay: 2.5s;
+}
+.temp{
+    opacity: 0 ;
+    transition: opacity 0.6s ease-in-out;
+    transition-delay: 3.5s;
+}
+.temperature{
+    font-size: 3rem;
+    font-weight: 700;
+}
+.feels{
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+.description{
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+.otherdata{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 20px 0;
+    overflow: hidden;
+}
+.humidity{
+    padding: 10px;
+    text-align: center;
+    transform: translateY(-15rem);
+    transition: transform 1s ease;
+    transition-delay: 4s;
+}
+.humidity i{
+    font-size: 3.2rem;
+}
+.humidity h3{
+    font-size: 1.1rem;
+}
+.wind{
+    padding: 10px;
+    text-align: center;
+    transform: translateY(-15rem);
+    transition: transform 1s ease;
+    transition-delay: 4s;
+}
+.wind i{
+    font-size: 3.2rem;
+}
+.wind h3{
+    font-size: 1.1rem;
+}
+.data{
+    font-size: 1.2rem;
+}
+
+.nextdays, .nextdaysnew{
+    grid-area: 1/1/2/2;
+    pointer-events: none;
+    display: grid;
+    grid-template-columns: repeat(3, auto); 
+    grid-template-rows: repeat(2, auto);
+    gap: 40px;
+    margin: 20px 20px 20px 34vw;
+    transform:translateX(70rem);
+}
+.nextdays.show{
+    transition: transform 1s ease;
+    transition-delay: 0.8s;
+    transform: translateX(0);
+}
+.nextdaysnew.show{
+    transform: translateX(0);
+}
+.nextdaysnew.disappear{
+    transition: transform 1s ease;
+    transition-delay: 0.8s;
+    transform: translateY(70rem);
+}
+.nextdaysnew.hide{
+    transition: transform 1.6s ease;
+    transition-delay: 0.8s;
+    transform: translateX(70rem);
+}
+.days{
+    background-color: transparent;
+    width: 19vw;
+    min-height: 38vh;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    font-family: "Ubuntu", sans-serif;
+    border: 2px solid white;
+    color: white;
+}
+.datenext{
+    font-size: 1.1rem;
+    margin-right: 10px;
+    font-weight: 500;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 5px;
+    opacity: 0 ;
+    transition: opacity 0.6s ease-in-out;
+    transition-delay: 2s;
+}
+.icon_tempnext{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+.tempnext{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -10px 0 10px;
+    opacity: 0 ;
+    transition: opacity 0.6s ease-in-out;
+    transition-delay: 3.5s;
+}
+.imagenext{
+    height: 150px;
+    width: 150px;
+    transform: translateX(15rem);
+    transition: transform 1s ease;
+    transition-delay: 2.5s;
+}
+.min_temp, .max_temp{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.descriptionnext{
+    opacity: 0 ;
+    transition: opacity 0.6s ease-in-out;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition-delay: 4s;
+}
